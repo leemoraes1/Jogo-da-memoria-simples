@@ -1,0 +1,66 @@
+* {
+  padding: 0; /* Remove o preenchimento padrão de todos os elementos */
+  margin: 0; /* Remove a margem padrão de todos os elementos */
+  box-sizing: border-box; /* Inclui padding e border no cálculo da largura e altura dos elementos */
+}
+
+body {
+  height: 100vh; /* Define a altura do body para a altura total da viewport */
+  display: flex; /* Usa Flexbox para layout */
+  background: #156fe4; /* Define a cor de fundo do body */
+}
+
+#cardboard {
+  width: 640px; /* Define a largura do contêiner dos cartões */
+  height: 640px; /* Define a altura do contêiner dos cartões */
+  margin: auto; /* Centraliza horizontalmente o contêiner na página */
+  display: flex; /* Usa Flexbox para layout dos cartões */
+  flex-wrap: wrap; /* Permite que os cartões se movam para a linha seguinte quando não há mais espaço */
+}
+
+.memory-card {
+  cursor: pointer; /* Adiciona um cursor pointer para indicar que é clicável */
+  width: calc(25% - 10px); /* Define a largura dos cartões, ajustada para levar em conta a margem */
+  height: 33%; /* Define a altura dos cartões como 33% da altura do contêiner */
+  margin: 5px; /* Define a margem ao redor de cada cartão */
+  transform-style: preserve-3d; /* Permite a transformação 3D dos cartões */
+  transition: 0.3s; /* Adiciona uma transição suave de 0.3 segundos para mudanças de estado */
+  position: relative; /* Define a posição relativa para posicionar os elementos internos */
+}
+
+.memory-card:active {
+  transform: scale(0.97); /* Reduz o tamanho do cartão quando clicado para efeito de feedback visual */
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg); /* Rotaciona o cartão ao redor do eixo Y para simular o efeito de virada */
+}
+
+.front-face,
+.back-face {
+  backface-visibility: hidden; /* Esconde a face de trás quando virada */
+  width: 100%; /* Define a largura das faces do cartão para 100% do cartão */
+  height: 100%; /* Define a altura das faces do cartão para 100% do cartão */
+  padding: 20px; /* Adiciona um preenchimento interno de 20px */
+  position: absolute; /* Posiciona as faces de forma absoluta dentro do cartão */
+  background: #3c93c575; /* Define a cor de fundo das faces do cartão */
+  border-radius: 10px;
+}
+
+.front-face {
+  transform: rotateY(180deg); /* Rotaciona a face frontal para escondê-la quando o cartão está fechado */
+}
+
+#restart-btn {
+  padding: 10px 20px; /* Espaço interno do botão */
+  font-size: 1em; /* Tamanho da fonte do botão */
+  cursor: pointer; /* Muda o cursor para pointer ao passar sobre o botão */
+  border: none; /* Remove a borda padrão do botão */
+  background-color: #4CAF50; /* Cor de fundo do botão */
+  color: white; /* Cor do texto do botão */
+  border-radius: 5px; /* Arredondamento dos cantos do botão */
+}
+
+#restart-btn:hover {
+  background-color: #45a049; /* Cor do botão ao passar o mouse */
+}
